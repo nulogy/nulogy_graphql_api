@@ -1,10 +1,39 @@
 require: rubocop-rspec
 
+inherit_from:
+  - .rubocop.directories.yml
+
 AllCops:
   TargetRubyVersion: 2.6
 
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
+
+Layout/EndAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: variable
+
+Layout/FirstArgumentIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+
+Layout/FirstHashElementIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+
+Layout/HashAlignment:
+  Enabled: true
+  EnforcedHashRocketStyle: key
+  EnforcedColonStyle: key
+  EnforcedLastArgumentHashStyle: always_ignore
+
+Layout/LineLength:
+  Max: 140
+
+Layout/MultilineOperationIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+  IndentationWidth: 2
 
 Layout/SpaceAroundMethodCallOperator:
   Enabled: false
@@ -57,6 +86,9 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: false
 
+Style/BlockDelimiters:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
@@ -69,7 +101,16 @@ Style/ExpandPathArguments:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
 Style/MutableConstant:
+  Enabled: false
+
+Style/RaiseArgs:
   Enabled: false
 
 Style/RedundantRegexpCharacterClass:
@@ -95,7 +136,3 @@ Style/SymbolArray:
 
 Style/WordArray:
   Enabled: false
-
-
-
-

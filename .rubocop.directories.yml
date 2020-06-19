@@ -1,0 +1,11 @@
+#
+# The Rubocop directory and file configuration for Packmanager.
+#
+
+AllCops:
+  Include:
+    - '**/*.rb'
+    - 'Gemfile'
+
+  Exclude:
+    - '**/spec/dummy/**/*'

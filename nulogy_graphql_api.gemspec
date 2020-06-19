@@ -29,10 +29,12 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "graphql", "~> 1.9"
+  spec.add_dependency "graphql-schema_comparator", "~> 0.6.1"
   spec.add_dependency "rails", "~> 5.2.4", "< 6.0"
 
-  spec.add_development_dependency "pg", "~> 1.2.3"
-  spec.add_development_dependency "rubocop", "~> 0.85"
+  spec.add_development_dependency "rspec-rails", "~> 3.9.0"
+  spec.add_development_dependency "rubocop", "~> 0.83"
   spec.add_development_dependency "rubocop-performance", "~> 1.6"
   spec.add_development_dependency "rubocop-rspec", "~> 1.39"
+  spec.add_development_dependency "sqlite3", "~> 1.4.2"
 end
