@@ -58,7 +58,7 @@ Given that you have already defined your GraphQL `Schema` you can receive reques
 module MyApp
   class GraphqlApiController < NulogyGraphqlApi::GraphqlApiController
     def execute
-      NulogyGraphqlApi::GraphqlExecutor.call(
+      NulogyGraphqlApi::GraphqlExecutor.execute(
         params, 
         context, 
         Schema, 
