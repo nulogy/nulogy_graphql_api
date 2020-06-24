@@ -7,7 +7,7 @@ RSpec.describe NulogyGraphqlApi::GraphqlExecutor do
     params = { variables: [] }
 
     expect {
-      executor.call(params, {})
+      executor.execute(params, {})
     }.to raise_error(ArgumentError, /Unexpected parameter: \[\]/)
   end
 
@@ -15,7 +15,7 @@ RSpec.describe NulogyGraphqlApi::GraphqlExecutor do
     it "invokes the transaction service" do
       setup_graphql_response
 
-      executor.call({}, {})
+      executor.execute({}, {})
 
       expect(transaction_service.was_called?).to be(true)
     end
@@ -23,7 +23,7 @@ RSpec.describe NulogyGraphqlApi::GraphqlExecutor do
     it "does not roll back transactions when the GraphQL errors are not present" do
       setup_graphql_response
 
-      executor.call({}, {})
+      executor.execute({}, {})
 
       expect(transaction_service.transaction.rolledback?).to be(false)
     end
@@ -31,7 +31,7 @@ RSpec.describe NulogyGraphqlApi::GraphqlExecutor do
     it "rolls back transactions when there are GraphQL errors" do
       setup_graphql_response_with_graphql_error
 
-      executor.call({}, {})
+      executor.execute({}, {})
 
       expect(transaction_service.transaction.rolledback?).to be(true)
     end
@@ -39,7 +39,7 @@ RSpec.describe NulogyGraphqlApi::GraphqlExecutor do
     it "rolls back transactions where there are domain errors" do
       setup_graphql_response_with_end_user_error
 
-      executor.call({}, {})
+      executor.execute({}, {})
 
       expect(transaction_service.transaction.rolledback?).to be(true)
     end
@@ -49,7 +49,7 @@ RSpec.describe NulogyGraphqlApi::GraphqlExecutor do
     it "returns a 200 when there are no errors" do
       setup_graphql_response
 
-      response = executor.call({}, {})
+      response = executor.execute({}, {})
 
       expect(response[:status]).to eq(200)
     end
@@ -57,7 +57,7 @@ RSpec.describe NulogyGraphqlApi::GraphqlExecutor do
     it "returns a 400 when there is a graphql error" do
       setup_graphql_response_with_graphql_error
 
-      response = executor.call({}, {})
+      response = executor.execute({}, {})
 
       expect(response[:status]).to eq(400)
     end
@@ -65,7 +65,7 @@ RSpec.describe NulogyGraphqlApi::GraphqlExecutor do
     it "returns a 422 when there is a user-facing error to make them easy to identify" do
       setup_graphql_response_with_end_user_error
 
-      response = executor.call({}, {})
+      response = executor.execute({}, {})
 
       expect(response[:status]).to eq(422)
     end

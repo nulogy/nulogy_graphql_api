@@ -4,12 +4,12 @@ module NulogyGraphqlApi
   class GraphqlExecutor
     attr_reader :schema, :transaction_service
 
-    def self.call(params, context, schema, transaction_service)
-      new(schema, transaction_service).call(params, context)
+    def self.execute(params, context, schema, transaction_service)
+      new(schema, transaction_service).execute(params, context)
     end
 
-    def call(params, context)
-      get_graphql_response(params, context).render_http_response
+    def execute(params, context)
+      graphql_response(params, context).render_http_response
     end
 
     private
@@ -19,7 +19,7 @@ module NulogyGraphqlApi
       @transaction_service = transaction_service
     end
 
-    def get_graphql_response(params, context)
+    def graphql_response(params, context)
       execute_graphql(params, context)
     end
 
