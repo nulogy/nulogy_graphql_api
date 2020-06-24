@@ -7,9 +7,8 @@ require File.expand_path("../dummy/config/environment.rb", __FILE__)
 
 require "rspec/rails"
 require "active_record"
+require "nulogy_graphql_api/rspec"
 require_relative "./helpers/db_helpers"
-
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].sort.each { |f| require f }
 
 RSpec.configure do |config|
   # Uncomment this line to see full backtraces for spec failures
