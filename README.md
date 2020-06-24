@@ -18,7 +18,155 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions for the rake task here
+#### Developing
+
+- [Controller](#controller)
+  - [Receiving Requests](#receiving-requests)
+  - [Error Handling](#error-handling)
+- [Types](#types)
+  - [UserErrorType](#usererrortype)
+  - [UUID](#uuid)
+- [Rake task](#rake-task)
+
+#### Testing
+
+- [RSpec helpers](#rspec-helpers)
+  - [Test helpers](#test-helpers)
+  - [Custom matchers](#custom-matchers)
+
+
+## Controller
+
+In order to create a GraphQL API controller, extend the `NulogyGraphqlApi::GraphqlApiController`:
+
+```ruby
+module MyApp
+  class GraphqlApiController < NulogyGraphqlApi::GraphqlApiController
+    
+  end
+end
+```
+
+#### Receiving Requests
+
+Given that you have already defined your GraphQL `Schema` you can receive requests by defining a controller action and execute the params by calling the `NulogyGraphqlApi::GraphqlExecutor`. 
+
+ - Remember to configure your routes to include the controller action. 
+ - We called the action `execute` in the example below, but you can call it whatever makes more sense for your app.
+
+```ruby
+module MyApp
+  class GraphqlApiController < NulogyGraphqlApi::GraphqlApiController
+    def execute
+      NulogyGraphqlApi::GraphqlExecutor.call(
+        params, 
+        context, 
+        Schema, 
+        NulogyGraphqlApi::TransactionService.new
+      )
+    end
+  end
+end
+```
+
+#### Error Handling
+
+The `NulogyGraphqlApi::GraphqlApiController` rescues from any unhandled `StandardError`. If you need to log errors before the response is sent to the client you can override the `render_error` method.
+
+```ruby
+module MyApp
+  class GraphqlApiController < NulogyGraphqlApi::GraphqlApiController
+    def render_error(exception)
+      MyApp::ExceptionNotifier.notify(exception)
+        
+      super
+    end
+  end
+end
+```
+
+### Types
+
+#### UserErrorType
+
+This type provides a way of returning end-user errors. You can find more details about this error handling strategy in [this document](https://docs.google.com/document/d/19JBm3gKfn0poxo07fg9rSy5iJ2N9cf3NjuVp0xQnXPQ/edit?usp=sharing).
+
+```ruby
+module MyApp
+  class CreateEntity < GraphQL::Schema::Mutation
+    field :entity, [MyApp::EntityType], null: true
+    field :errors, [NulogyGraphqlApi::Types::UserErrorType], null: false
+    
+    def resolve(args)
+      entity = create_entity(args)
+    
+      {
+        entity: entity,
+        errors: extract_errors(entity)
+      }
+    end
+
+    def extract_errors(entity)
+      entity.errors.map do |attribute, message| 
+        {
+          path: path_for(attribute),
+          message: entity.errors.full_message(attribute, message)
+        }
+      end
+    end
+  end
+end
+```
+
+#### UUID
+
+This type provides a way of returning UUID values.
+
+```ruby
+module MyApp
+  class EntityType < GraphQL::Schema::Object
+    field :id, NulogyGraphqlApi::Types::UUID, null: false
+  end
+end
+```
+
+### Rake task
+
+There is a Rake task to generate the `schema.graphql` file. All you need to provide is the path to the old and the new schema files so that the task can detect breaking changes. If you don't have an old schema file because it's your first time generating it then the rake task will just create one for you.
+
+```ruby
+namespace :my_app_graphql_api do
+  desc "Generate the graphql schema of the api."
+
+  task :generate_schema => :environment do
+    old_schema_file_path = MyApp::Engine.root.join("schema.graphql")
+    new_schema_file_path = MyApp::Engine.root.join("app/graphql/my_app/schema.rb")
+
+    Rake::Task["nulogy_graphql_api:generate_schema"]
+      .invoke(old_schema_file_path, new_schema_file_path)
+  end
+end
+```
+
+### RSpec helpers
+
+Add this to your `spec_helpers.rb` file:
+
+```ruby
+require "nulogy_graphql_api/rspec"
+```
+
+Then you can include helpers and matchers as in:
+
+```ruby
+config.include NulogyGraphqlApi::GraphqlMatchers, graphql: true
+config.include NulogyGraphqlApi::GraphqlHelpers, graphql: true
+``` 
+
+#### Test helpers
+
+
+#### Custom matchers
 
 ## Development
 
