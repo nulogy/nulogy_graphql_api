@@ -94,7 +94,7 @@ This type provides a way of returning end-user errors. You can find more details
 ```ruby
 module MyApp
   class CreateEntity < GraphQL::Schema::Mutation
-    field :entity, [MyApp::EntityType], null: true
+    field :entity, MyApp::EntityType, null: false
     field :errors, [NulogyGraphqlApi::Types::UserErrorType], null: false
     
     def resolve(args)
