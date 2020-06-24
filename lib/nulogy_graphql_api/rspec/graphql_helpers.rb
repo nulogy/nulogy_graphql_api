@@ -1,6 +1,6 @@
 module NulogyGraphqlApi
   module GraphqlHelpers
-    def execute_graphql(query, schema: default_graphql_schema, variables: {}, context: default_graphql_context)
+    def execute_graphql(query, schema, variables: {}, context: default_graphql_context)
       camelized_variables = variables.deep_transform_keys! { |key| key.to_s.camelize(:lower) } || {}
 
       response = schema.execute(
@@ -19,10 +19,6 @@ module NulogyGraphqlApi
         account_id: default_account.id,
         current_user: default_user
       }
-    end
-
-    def default_graphql_schema
-      raise NotImplementedError.new("default_graphql_schema")
     end
 
     def request_graphql(url, query, variables: {}, headers: {})
@@ -61,7 +57,7 @@ module NulogyGraphqlApi
       GRAPHQL
 
       expect do
-        gql_response = execute_graphql(gql, schema: schema)
+        gql_response = execute_graphql(gql, schema)
         expect(gql_response).to eq(data: {})
       end.to change(GraphqlApi::Models::PublicSubscription, :count).by(1)
 
