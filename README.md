@@ -165,8 +165,70 @@ config.include NulogyGraphqlApi::GraphqlHelpers, graphql: true
 
 #### Test helpers
 
+The `execute_graphql` helper execute GraphQL operations directly against the provided schema. This is how it can be used:
+
+```ruby
+RSpec.describe MyApp::Graphql::Query, :graphql do
+  let(:schema) { MyApp::Schema }
+
+  it "returns an entity" do
+    entity = create(:entity)
+
+    response = execute_graphql(<<~GRAPHQL, schema)
+      query {
+        entity(id: "#{entity.id}") {
+          id
+        }
+      }
+    GRAPHQL
+
+    expect(response).to have_graphql_data(
+      project: {
+        id: entity.id
+      }
+    )
+  end
+end
+```
+
+The `request_graphql` helper issue a POST request against the provided URL. This is how it can be used:
+
+```ruby
+RSpec.describe MyApp::Graphql::Query, :graphql, type: :request do
+  it "returns 401 Unauthorized given an unauthenticated request" do
+      gql_response = request_graphql(url, <<~GRAPHQL, headers: { "HTTP_AUTHORIZATION" => nil })
+        query {
+          entities {
+            id
+          }
+        }
+      GRAPHQL
+
+      expect(response.status).to eq(401)
+      expect(gql_response).to have_graphql_error("Unauthorized")
+    end
+end
+```
 
 #### Custom matchers
+
+These are the custom matchers available:
+
+`have_graphql_data` for checking the response `data`
+
+```ruby
+expect(response).to have_graphql_data(
+  project: {
+    id: entity.id
+  }
+)
+```
+
+`have_graphql_error` for checking the response `errors`
+
+```ruby
+expect(response).to have_graphql_error("Error message")
+```
 
 ## Development
 
