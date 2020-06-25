@@ -159,8 +159,10 @@ require "nulogy_graphql_api/rspec"
 Then you can include helpers and matchers as in:
 
 ```ruby
-config.include NulogyGraphqlApi::GraphqlMatchers, graphql: true
-config.include NulogyGraphqlApi::GraphqlHelpers, graphql: true
+RSpec.configure do |config|
+  config.include NulogyGraphqlApi::GraphqlMatchers, graphql: true
+  config.include NulogyGraphqlApi::GraphqlHelpers, graphql: true
+end
 ``` 
 
 #### Test helpers
