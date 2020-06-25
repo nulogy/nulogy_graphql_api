@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 0.3.0 (2020-06-25)
+
+**Breaking Changes**
+
+* Remove spec helpers related to subscriptions
+
 ## 0.2.0 (2020-06-24)
 
 **Breaking Changes**
