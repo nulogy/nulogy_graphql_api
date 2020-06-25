@@ -191,7 +191,7 @@ RSpec.describe MyApp::Graphql::Query, :graphql do
 end
 ```
 
-The `request_graphql` helper issue a POST request against the provided URL. This is how it can be used:
+The `request_graphql` helper issues a POST request against the provided URL. This is how it can be used:
 
 ```ruby
 RSpec.describe MyApp::Graphql::Query, :graphql, type: :request do
