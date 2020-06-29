@@ -1,5 +1,5 @@
 module NulogyGraphqlApi
-  class GraphqlApiController < ActionController::Base
+  class GraphqlApiController < ActionController::API
     rescue_from StandardError do |exception|
       render_error(exception)
     end
