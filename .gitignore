@@ -12,3 +12,6 @@
 .rspec_status
 /Gemfile.lock
 /spec/dummy/log/test.log
+
+# Appraisals
+*.gemfile.lock
