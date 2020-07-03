@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 0.3.1 (2020-07-03)
+
+* Support Rails 6
+
 ## 0.3.0 (2020-06-25)
 
 **Breaking Changes**
