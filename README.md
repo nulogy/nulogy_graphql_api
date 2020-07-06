@@ -20,9 +20,8 @@ Or install it yourself as:
 
 #### Developing
 
-- [Controller](#controller)
-  - [Receiving Requests](#receiving-requests)
-  - [Error Handling](#error-handling)
+- [Receiving Requests](#receiving-requests)
+- [Error Handling](#error-handling)
 - [Types](#types)
   - [UserErrorType](#usererrortype)
   - [UUID](#uuid)
@@ -35,18 +34,6 @@ Or install it yourself as:
   - [Custom matchers](#custom-matchers)
 
 
-## Controller
-
-In order to create a GraphQL API controller, extend the `NulogyGraphqlApi::GraphqlApiController`:
-
-```ruby
-module MyApp
-  class GraphqlApiController < NulogyGraphqlApi::GraphqlApiController
-    
-  end
-end
-```
-
 #### Receiving Requests
 
 Given that you have already defined your GraphQL `Schema` you can receive requests by defining a controller action and execute the params by calling the `NulogyGraphqlApi::GraphqlExecutor`. 
@@ -56,7 +43,9 @@ Given that you have already defined your GraphQL `Schema` you can receive reques
 
 ```ruby
 module MyApp
-  class GraphqlApiController < NulogyGraphqlApi::GraphqlApiController
+  class GraphqlApiController < ApplicationController
+    include NulogyGraphqlApi::ErrorHandling
+
     def execute
       NulogyGraphqlApi::GraphqlExecutor.execute(
         params, 
@@ -71,11 +60,13 @@ end
 
 #### Error Handling
 
-The `NulogyGraphqlApi::GraphqlApiController` rescues from any unhandled `StandardError`. If you need to log errors before the response is sent to the client you can override the `render_error` method.
+The `NulogyGraphqlApi::ErrorHandling` concern rescues from any unhandled `StandardError`. If you need to log errors before the response is sent to the client you can override the `render_error` method.
 
 ```ruby
 module MyApp
-  class GraphqlApiController < NulogyGraphqlApi::GraphqlApiController
+  class GraphqlApiController < ApplicationController
+    include NulogyGraphqlApi::ErrorHandling
+
     def render_error(exception)
       MyApp::ExceptionNotifier.notify(exception)
         
