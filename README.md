@@ -5,7 +5,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "nulogy_graphql_api", "0.3.1", git: "https://github.com/nulogy/nulogy_graphql_api.git"
+gem "nulogy_graphql_api", "0.4.0", git: "https://github.com/nulogy/nulogy_graphql_api.git"
 ```
 
 And then execute:
