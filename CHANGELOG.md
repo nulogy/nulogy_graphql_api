@@ -2,6 +2,13 @@
 
 ## master (unreleased)
 
+## 0.4.0 (2020-07-06)
+
+**Breaking Changes**
+
+* Remove the GraphqlApiController
+* Add the ErrorHandling controller concern
+
 ## 0.3.1 (2020-07-03)
 
 * Support Rails 6
