@@ -1,3 +1,6 @@
+require "graphql/schema_comparator"
+require "rainbow"
+
 namespace :nulogy_graphql_api do
   desc "Generate a schema.graphql file"
 
@@ -28,8 +31,6 @@ namespace :nulogy_graphql_api do
   end
 
   class GraphqlSchemaGenerator
-    SCHEMA_FILE_NAME = "schema.graphql"
-
     def generate_schema(old_schema_file_path, new_schema_file_path)
       @old_schema_file_path = old_schema_file_path
       @new_schema_file_path = new_schema_file_path
