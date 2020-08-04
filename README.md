@@ -130,11 +130,11 @@ namespace :my_app_graphql_api do
   desc "Generate the graphql schema of the api."
 
   task :generate_schema => :environment do
-    old_schema_file_path = MyApp::Engine.root.join("schema.graphql")
-    new_schema_file_path = MyApp::Engine.root.join("app/graphql/my_app/schema.rb")
+    schema_file_path = MyApp::Engine.root.join("schema.graphql")
+    schema_definition_path = MyApp::Engine.root.join("path/to/schema/root/schema.rb")
 
     Rake::Task["nulogy_graphql_api:generate_schema"]
-      .invoke(old_schema_file_path, new_schema_file_path)
+      .invoke(schema_file_path, schema_definition_path)
   end
 end
 ```

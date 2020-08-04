@@ -28,49 +28,49 @@ class GraphqlSchemaChangesChecker
 end
 
 class GraphqlSchemaGenerator
-  def generate_schema(old_schema_file_path, new_schema_file_path)
-    @old_schema_file_path = old_schema_file_path
-    @new_schema_file_path = new_schema_file_path
+  def initialize(schema_output_path, schema_definition_path)
+    @schema_output_path = schema_output_path
+    @schema_definition_path = schema_definition_path
+  end
 
-    generate_schema_file
+  def generate_schema
+    check_changes
+    write_schema_to_file
   end
 
   private
 
-  def check_changes(old_schema, new_schema)
-    GraphqlSchemaChangesChecker.new.check_changes(old_schema, new_schema)
-  end
+  def check_changes
+    return if old_schema.blank?
 
-  def new_schema
-    require @new_schema_file_path
-
-    GraphQL::Schema.descendants.first.to_definition
+    GraphqlSchemaChangesChecker.new.check_changes(old_schema, schema_definition)
   end
 
   def old_schema
-    return nil unless File.exists?(@old_schema_file_path)
+    return unless File.exist?(@schema_output_path)
 
-    File.read(@old_schema_file_path)
+    File.read(@schema_output_path)
   end
 
-  def generate_schema_file
-    check_changes(old_schema, new_schema) if old_schema
-
-    write_new_schema_file
+  def schema_definition
+    require @schema_definition_path
+    GraphQL::Schema.descendants.first.to_definition
   end
 
-  def write_new_schema_file
-    File.write(@old_schema_file_path, new_schema)
-    puts Rainbow("\nSuccessfully updated #{@old_schema_file_path}").green
+  def write_schema_to_file
+    File.write(@schema_output_path, schema_definition)
+    puts Rainbow("\nSuccessfully updated #{@schema_output_path}").green
   end
 end
 
 namespace :nulogy_graphql_api do
   desc "Generate a schema.graphql file"
 
-  task :generate_schema, [:old_schema_file_path, :new_schema_file_path] => :environment do |_task, args|
-    abort "new_schema_file_path is required" unless args.key?(:new_schema_file_path)
+  task :generate_schema, [:schema_output_path, :schema_definition_path] => :environment do |_task, args|
+    abort "schema_definition_path is required" unless args.key?(:schema_definition_path)
 
-    GraphqlSchemaGenerator.new.generate_schema(args[:old_schema_file_path], args[:new_schema_file_path])
+    GraphqlSchemaGenerator
+      .new(args[:schema_output_path], args[:schema_definition_path])
+      .generate_schema
   end
 end
