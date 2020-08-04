@@ -1,9 +1,10 @@
 module NulogyGraphqlApi
   module Tasks
-    class GraphqlSchemaGenerator
-      def initialize(schema_output_path, schema_definition_path)
+    class SchemaGenerator
+      def initialize(schema_output_path, schema_definition_path, context: {})
         @schema_output_path = schema_output_path
         @schema_definition_path = schema_definition_path
+        @context = context
       end
 
       def generate_schema
@@ -16,7 +17,7 @@ module NulogyGraphqlApi
       def check_changes
         return if old_schema.blank?
 
-        GraphqlSchemaChangesChecker.new.check_changes(old_schema, schema_definition)
+        SchemaChangesChecker.new.check_changes(old_schema, schema_definition)
       end
 
       def old_schema
@@ -27,7 +28,7 @@ module NulogyGraphqlApi
 
       def schema_definition
         require @schema_definition_path
-        GraphQL::Schema.descendants.first.to_definition
+        @schema_definition ||= GraphQL::Schema.descendants.first.to_definition(context: @context)
       end
 
       def write_schema_to_file

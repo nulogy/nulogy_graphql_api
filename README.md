@@ -133,8 +133,16 @@ namespace :my_app_graphql_api do
     schema_file_path = MyApp::Engine.root.join("schema.graphql")
     schema_definition_path = MyApp::Engine.root.join("path/to/schema/root/schema.rb")
 
-    Rake::Task["nulogy_graphql_api:generate_schema"]
-      .invoke(schema_file_path, schema_definition_path)
+    # Context is an optional parameter, but may be required if you change the visibility of nodes in your graph 
+    # i.e. 
+    # def visible?(context)
+    #   context[:current_user].superuser?
+    # end
+    context = {}
+
+    NulogyGraphqlApi::Tasks::SchemaGenerator
+      .new(schema_file_path, schema_definition_path, context: context)
+      .generate_schema
   end
 end
 ```

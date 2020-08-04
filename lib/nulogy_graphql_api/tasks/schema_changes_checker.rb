@@ -3,7 +3,7 @@ require "rainbow"
 
 module NulogyGraphqlApi
   module Tasks
-    class GraphqlSchemaChangesChecker
+    class SchemaChangesChecker
       def check_changes(old_schema, new_schema)
         compare_result = GraphQL::SchemaComparator.compare(old_schema, new_schema)
 
