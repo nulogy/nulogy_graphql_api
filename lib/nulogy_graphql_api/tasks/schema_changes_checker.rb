@@ -25,7 +25,7 @@ module NulogyGraphqlApi
 
         puts "\n\nDo you want to update the schema anyway? [Y/n]"
 
-        STDIN.gets.chomp != "n"
+        STDIN.gets.chomp.downcase != "n"
       end
     end
   end

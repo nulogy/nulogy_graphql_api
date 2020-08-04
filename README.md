@@ -126,7 +126,7 @@ end
 There is a Rake task to generate the `schema.graphql` file. All you need to provide is the path to the old and the new schema files so that the task can detect breaking changes. If you don't have an old schema file because it's your first time generating it then the rake task will just create one for you.
 
 ```ruby
-namespace :my_app_graphql_api do
+namespace :graphql_api do
   desc "Generate the graphql schema of the api."
 
   task :generate_schema => :environment do
