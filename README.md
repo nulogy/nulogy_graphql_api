@@ -5,7 +5,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "nulogy_graphql_api", "0.4.0"
+gem "nulogy_graphql_api", "0.5.0"
 ```
 
 And then execute:
@@ -123,7 +123,9 @@ end
 
 ### Rake task
 
-There is a Rake task to generate the `schema.graphql` file. All you need to provide is the path to the old and the new schema files so that the task can detect breaking changes. If you don't have an old schema file because it's your first time generating it then the rake task will just create one for you.
+There is a Rake task to generate the `schema.graphql` file. You need to provide the `schema_file_path` and the `schema_definition_path` so that the task can detect breaking changes and generate the file. If you don't have a schema file because it's your first time generating it then the rake task will just create one for you in the path provided.
+
+There is also a third argument `context`. You'll have to configure it to be able to generate the SDL of fields or types that are only visible for more privileged users.
 
 ```ruby
 namespace :graphql_api do
