@@ -2,6 +2,13 @@
 
 ## master (unreleased)
 
+## 0.5.0
+
+**Breaking Changes**
+
+* Add `context` to the Rake task that generates the schema file.  
+This changes the way the schema is parsed. Please refer to the README file to see an example of how to use `context`.
+
 ## 0.4.0 (2020-07-06)
 
 **Breaking Changes**
