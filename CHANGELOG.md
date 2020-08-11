@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 0.5.1
+
+* Add the `schema_generation_context?` attribute to the GraphQL `context` when generating the schema.
+
 ## 0.5.0
 
 **Breaking Changes**
