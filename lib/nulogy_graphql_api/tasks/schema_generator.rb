@@ -4,7 +4,9 @@ module NulogyGraphqlApi
       def initialize(schema_output_path, schema_definition_path, context: {})
         @schema_output_path = schema_output_path
         @schema_definition_path = schema_definition_path
-        @context = context
+        @context = context.merge(
+          schema_generation_context?: true
+        )
       end
 
       def generate_schema
