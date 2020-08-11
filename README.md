@@ -5,7 +5,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "nulogy_graphql_api", "0.5.1"
+gem "nulogy_graphql_api", "0.5.2"
 ```
 
 And then execute:
@@ -149,7 +149,7 @@ When you customize the visibility of parts of your graph you have to make sure t
 
 Here is how to use it:
 
-##### For fields
+##### On fields
 ```ruby
 field :entity, MyApp::EntityType, null: false do
   description "Find an entity by ID"
@@ -162,16 +162,19 @@ end
 ```
 
 
-##### For classes
+##### On mutations
+
+In this case the `schema_generation_context?` attribute is checked by the BaseMutation class.
+
 ```ruby
 module MyApp
-  class CreateEntity < GraphQL::Schema::Mutation
+  class CreateEntity < NulogyGraphqlApi::Schema::BaseMutation
     field :entity, MyApp::EntityType, null: false
     field :errors, [NulogyGraphqlApi::Types::UserErrorType], null: false
     
-    def self.visible(context)
-      super && (context[:schema_generation_context?] || context[:current_user].superuser?)
-    end
+      def self.visible?(context)
+        super { context[:current_user].super_user? }
+      end
 
     def resolve(args)
       # ...
