@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 0.5.2 (2020-08-11)
+
+* Add `BaseMutation`.
+
 ## 0.5.1 (2020-08-11)
 
 * Add the `schema_generation_context?` attribute to the GraphQL `context` when generating the schema.
