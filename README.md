@@ -5,7 +5,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "nulogy_graphql_api", "0.5.0"
+gem "nulogy_graphql_api", "0.5.1"
 ```
 
 And then execute:
@@ -25,7 +25,8 @@ Or install it yourself as:
 - [Types](#types)
   - [UserErrorType](#usererrortype)
   - [UUID](#uuid)
-- [Rake task](#rake-task)
+- [Schema Generation](#schema-generation)
+- [Node Visibility](#node-visibility)
 
 #### Testing
 
@@ -121,7 +122,7 @@ module MyApp
 end
 ```
 
-### Rake task
+### Schema Generation
 
 There is a Rake task to generate the `schema.graphql` file. You need to provide the `schema_file_path` and the `schema_definition_path` so that the task can detect breaking changes and generate the file. If you don't have a schema file because it's your first time generating it then the rake task will just create one for you in the path provided.
 
@@ -135,16 +136,46 @@ namespace :graphql_api do
     schema_file_path = MyApp::Engine.root.join("schema.graphql")
     schema_definition_path = MyApp::Engine.root.join("path/to/schema/root/schema.rb")
 
-    # Context is an optional parameter, but may be required if you change the visibility of nodes in your graph 
-    # i.e. 
-    # def visible?(context)
-    #   context[:current_user].superuser?
-    # end
-    context = {}
-
     NulogyGraphqlApi::Tasks::SchemaGenerator
-      .new(schema_file_path, schema_definition_path, context: context)
+      .new(schema_file_path, schema_definition_path)
       .generate_schema
+  end
+end
+```
+
+### Node visibility
+
+When you customize the visibility of parts of your graph you have to make sure that node will be visible when the schema is being generated. You can do so by using the `schema_generation_context?` attribute that is added to the context by the `SchemaGenerator` mentioned in the previous section. 
+
+Here is how to use it:
+
+##### For fields
+```ruby
+field :entity, MyApp::EntityType, null: false do
+  description "Find an entity by ID"
+  argument :id, ID, required: true
+
+  def visible?(context)
+    context[:schema_generation_context?] || context[:current_user].superuser?
+  end
+end
+```
+
+
+##### For classes
+```ruby
+module MyApp
+  class CreateEntity < GraphQL::Schema::Mutation
+    field :entity, MyApp::EntityType, null: false
+    field :errors, [NulogyGraphqlApi::Types::UserErrorType], null: false
+    
+    def self.visible(context)
+      super && (context[:schema_generation_context?] || context[:current_user].superuser?)
+    end
+
+    def resolve(args)
+      # ...
+    end
   end
 end
 ```
