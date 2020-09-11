@@ -1,5 +1,9 @@
 # NulogyGraphqlApi
 
+## Intent
+
+Help Nulogy applications be compliant with the [Standard on Error-handling in GraphQL](https://trello.com/c/N5cHt4Gp/7-error-handling-in-graphql-apis).
+
 ## Installation
 
 Add this line to your application's Gemfile:
