@@ -16,8 +16,8 @@ module NulogyGraphqlApi
     def request_graphql(url, query, variables: {}, headers: {})
       params = { query: query, variables: variables }.to_json
       default_headers = {
-        "CONTENT_TYPE": "application/json",
-        "HTTP_AUTHORIZATION": basic_auth_token(default_user.login)
+        CONTENT_TYPE: "application/json",
+        HTTP_AUTHORIZATION: basic_auth_token(default_user.login)
       }
 
       post url, params: params, headers: default_headers.merge(headers)
