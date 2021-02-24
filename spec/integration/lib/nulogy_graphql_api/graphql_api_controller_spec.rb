@@ -1,5 +1,27 @@
 # rubocop:disable RSpec/FilePath
-RSpec.describe DummyApiController, type: :request do
+RSpec.describe DummyApiController, :graphql, type: :request do
+  it "returns graphql response" do
+    query = <<~GRAPHQL
+      query {
+        fakes {
+          field
+        }
+      }
+    GRAPHQL
+
+    post "/graphql_api/dummy_api/graphql", params: { query: query }
+
+    gql_response = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to be_successful
+    expect(gql_response).to have_graphql_data(
+      fakes: [
+        { field: "foo" },
+        { field: "bar" }
+      ]
+    )
+  end
+
   it "returns Not Found when requesting an entity that does not exist" do
     get "/graphql_api/dummy_api/test_record_not_found"
 

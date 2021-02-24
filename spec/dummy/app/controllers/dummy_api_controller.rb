@@ -1,6 +1,12 @@
 class DummyApiController < ActionController::API
   include NulogyGraphqlApi::ErrorHandling
 
+  def execute
+    result = NulogyGraphqlApi::GraphqlExecutor.execute(params, {}, ::FakeSchema, NulogyGraphqlApi::TransactionService.new)
+
+    render json: result[:json], status: result[:status]
+  end
+
   def test_exception
     raise "Exception message"
   end

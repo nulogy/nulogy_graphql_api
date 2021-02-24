@@ -1,5 +1,5 @@
 RSpec.describe NulogyGraphqlApi::GraphqlExecutor do
-  let(:schema) { instance_double("Graphql::Schema") }
+  let(:schema) { FakeSchema }
   let(:transaction_service) { NulogyGraphqlApi::TransactionService::Dummy.new }
   let(:executor) { described_class.new(schema, transaction_service) }
 

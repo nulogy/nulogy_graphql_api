@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get "/graphql_api/dummy_base/test_record_not_found", to: "dummy_base#test_record_not_found"
   get "/graphql_api/dummy_base/test_timeout", to: "dummy_base#test_timeout"
   get "/graphql_api/dummy_base/test_unauthorized", to: "dummy_base#test_unauthorized"
+
+  post "/graphql_api/dummy_api/graphql", to: "dummy_api#execute"
 end
