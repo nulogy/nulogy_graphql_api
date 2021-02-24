@@ -35,8 +35,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "appraisal", "~> 2.3.0"
   spec.add_development_dependency "rspec-rails", "~> 3.9.0"
-  spec.add_development_dependency "rubocop", "~> 0.83"
+  spec.add_development_dependency "rubocop", "~> 1.10.0"
   spec.add_development_dependency "rubocop-performance", "~> 1.6"
-  spec.add_development_dependency "rubocop-rspec", "~> 1.39"
+  spec.add_development_dependency "rubocop-rspec", "~> 2.2.0"
   spec.add_development_dependency "sqlite3", "~> 1.4.2"
 end
