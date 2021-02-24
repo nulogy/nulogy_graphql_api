@@ -287,7 +287,12 @@ The Directly Responsible Individual (DRI) for this project is Daniel Silva.
 
 When you are happy with your changes:
 
-1. Add description of changes to the top of the [CHANGELOG](./CHANGELOG.md) file, under the `## master (unreleased)` section.
+1. Add description of changes to the top of the [CHANGELOG](./CHANGELOG.md) file, under the `## master (unreleased)` section subdivided into the following categories:
+    - New Features
+    - Bug Fixes
+    - Changes
+        - *prepend these with* **(Breaking)***,* **(Potentially Breaking)** *or just leave it blank in case neither applies*
+    
 1. Create a Pull Request.
 1. Notify #nulogy-graphql-api Slack channel to get the DRI review and merge your changes.
 
