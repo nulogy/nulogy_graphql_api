@@ -6,6 +6,9 @@ inherit_from:
 AllCops:
   TargetRubyVersion: 2.6
 
+Gemspec/DateAssignment:
+  Enabled: true
+
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 
@@ -38,20 +41,71 @@ Layout/MultilineOperationIndentation:
 Layout/SpaceAroundMethodCallOperator:
   Enabled: false
 
+Layout/SpaceBeforeBrackets:
+  Enabled: true
+
+Lint/AmbiguousAssignment:
+  Enabled: true
+
+Lint/DeprecatedConstants:
+  Enabled: true
+
 Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/DuplicateBranch:
   Enabled: true
 
 Lint/DuplicateElsifCondition:
   Enabled: true
 
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: true
+
+Lint/EmptyBlock:
+  Enabled: true
+
+Lint/EmptyClass:
+  Enabled: true
+
+Lint/LambdaWithoutLiteralBlock:
+  Enabled: true
+
 Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: true
+
+Lint/NumberedParameterAssignment:
+  Enabled: true
+
+Lint/OrAssignmentToConstant:
   Enabled: true
 
 Lint/RaiseException:
   Enabled: false
 
+Lint/RedundantDirGlobSort:
+  Enabled: true
+
 Lint/StructNewOverride:
   Enabled: false
+
+Lint/SymbolConversion:
+  Enabled: true
+
+Lint/ToEnumArguments:
+  Enabled: true
+
+Lint/TripleQuotes:
+  Enabled: true
+
+Lint/UnexpectedBlockArity:
+  Enabled: true
+
+Lint/UnmodifiedReduceAccumulator:
+  Enabled: true
 
 Metrics:
   Enabled: false
@@ -80,6 +134,9 @@ RSpec/NotToNot:
 Style/AccessorGrouping:
   Enabled: true
 
+Style/ArgumentsForwarding:
+  Enabled: true
+
 Style/ArrayCoercion:
   Enabled: true
 
@@ -89,14 +146,29 @@ Style/BisectedAttrAccessor:
 Style/CaseLikeIf:
   Enabled: true
 
+Style/CollectionCompact:
+  Enabled: true
+
+Style/DocumentDynamicEvalDefinition:
+  Enabled: true
+
+Style/EndlessMethod:
+  Enabled: true
+
 Style/ExponentialNotation:
   Enabled: false
 
 Style/HashAsLastArrayItem:
   Enabled: true
 
+Style/HashConversion:
+  Enabled: true
+
 Style/HashEachMethods:
   Enabled: false
+
+Style/HashExcept:
+  Enabled: true
 
 Style/HashLikeCase:
   Enabled: true
@@ -106,6 +178,9 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: false
+
+Style/IfWithBooleanLiteralBranches:
+  Enabled: true
 
 Style/BlockDelimiters:
   Enabled: false
@@ -131,8 +206,14 @@ Style/GuardClause:
 Style/MutableConstant:
   Enabled: false
 
+Style/NegatedIfElseCondition:
+  Enabled: true
+
 Style/RaiseArgs:
   Enabled: false
+
+Style/RedundantArgument:
+  Enabled: true
 
 Style/RedundantAssignment:
   Enabled: true
@@ -160,6 +241,12 @@ Style/SlicingWithRange:
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+Style/SwapValues:
+  Enabled: true
+
+Style/NilLambda:
+  Enabled: true
 
 Style/SymbolArray:
   Enabled: false
