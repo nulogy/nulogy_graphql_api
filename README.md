@@ -279,7 +279,17 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/nulogy/nulogy_graphql_api/issues. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/nulogy/nulogy_graphql_api/blob/master/CODE_OF_CONDUCT.md).
+We treat this project as an internal "open source" project. Everyone at Nulogy is welcome to submit Pull Requests.
+
+### Submitting Pull Requests
+
+The Directly Responsible Individual (DRI) for this project is Daniel Silva.
+
+When you are happy with your changes:
+
+1. Add description of changes to the top of the [CHANGELOG](./CHANGELOG.md) file, under the `## master (unreleased)` section.
+1. Create a Pull Request.
+1. Notify #nulogy-graphql-api Slack channel to get the DRI review and merge your changes.
 
 ## License
 
