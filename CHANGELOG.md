@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+**Changes**
+
+* **(Potentially Breaking)** Bump graphql gem version to 1.12.5
+
 ## 0.5.3 (2020-08-11)
 
 * Add `BaseMutation`.
@@ -12,17 +16,17 @@
 
 ## 0.5.0 (2020-08-05)
 
-**Breaking Changes**
+**Changes**
 
-* Add `context` to the Rake task that generates the schema file.  
+* **(Breaking)** Add `context` to the Rake task that generates the schema file.  
 This changes the way the schema is parsed. Please refer to the README file to see an example of how to use `context`.
 
 ## 0.4.0 (2020-07-06)
 
-**Breaking Changes**
+**Changes**
 
-* Remove the GraphqlApiController
-* Add the ErrorHandling controller concern
+* **(Breaking)** Remove the GraphqlApiController
+* **(Breaking)** Add the ErrorHandling controller concern
 
 ## 0.3.1 (2020-07-03)
 
@@ -30,20 +34,20 @@ This changes the way the schema is parsed. Please refer to the README file to se
 
 ## 0.3.0 (2020-06-25)
 
-**Breaking Changes**
+**Changes**
 
-* Remove spec helpers related to subscriptions
+* **(Breaking)** Remove spec helpers related to subscriptions
 
 ## 0.2.0 (2020-06-24)
 
-**Breaking Changes**
+**Changes**
 
-* Rename `GraphqlExecutor.call` to `execute`
-* Change `schema` parameter on `execute_graphql` test helper to positional
+* **(Breaking)** Rename `GraphqlExecutor.call` to `execute`
+* **(Breaking)** Change `schema` parameter on `execute_graphql` test helper to positional
 
 ## 0.1.1 (2020-06-24)
 
-**New Features**
+**Changes**
 
 * RSpec custom matchers
 * RSpec helpers
