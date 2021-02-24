@@ -72,14 +72,14 @@ RSpec.describe NulogyGraphqlApi::GraphqlExecutor do
   end
 
   def setup_graphql_response
-    expect(schema).to receive(:execute).and_return({})
+    allow(schema).to receive(:execute).and_return({})
   end
 
   def setup_graphql_response_with_end_user_error
-    expect(schema).to receive(:execute).and_return("data" => { "payload" => { "errors" => [{}] } })
+    allow(schema).to receive(:execute).and_return("data" => { "payload" => { "errors" => [{}] } })
   end
 
   def setup_graphql_response_with_graphql_error
-    expect(schema).to receive(:execute).and_return("errors" => [{}])
+    allow(schema).to receive(:execute).and_return("errors" => [{}])
   end
 end
