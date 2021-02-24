@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 5.2.4", "< 6.1.0"
   spec.add_dependency "rainbow", "~> 3.0.0"
 
-  spec.add_development_dependency "appraisal", "~> 2.1.0"
+  spec.add_development_dependency "appraisal", "~> 2.3.0"
   spec.add_development_dependency "rspec-rails", "~> 3.9.0"
   spec.add_development_dependency "rubocop", "~> 0.83"
   spec.add_development_dependency "rubocop-performance", "~> 1.6"
