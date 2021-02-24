@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.6.0 (2021-02-24)
+
 **Changes**
 
 * **(Potentially Breaking)** Bump graphql gem version to 1.12.5
