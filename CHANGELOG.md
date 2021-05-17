@@ -2,6 +2,13 @@
 
 ## master (unreleased)
 
+**Changes**
+
+* **(Breaking)** Change argument to `SchemaGenerator`
+
+The `SchemaGenerator` now takes the path to the `schema.graphql` and the schema class as required arguments.
+See [the update in the README](README.md#Schema-Generation).
+
 ## 0.6.0 (2021-02-24)
 
 **Changes**
@@ -20,7 +27,7 @@
 
 **Changes**
 
-* **(Breaking)** Add `context` to the Rake task that generates the schema file.  
+* **(Breaking)** Add `context` to the Rake task that generates the schema file.
 This changes the way the schema is parsed. Please refer to the README file to see an example of how to use `context`.
 
 ## 0.4.0 (2020-07-06)
