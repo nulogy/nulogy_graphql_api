@@ -30,13 +30,13 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "graphql", "~> 1.12.5"
   spec.add_dependency "graphql-schema_comparator", "~> 1.0.0"
-  spec.add_dependency "rails", ">= 5.2.4", "< 6.1.0"
-  spec.add_dependency "rainbow", "~> 3.0.0"
+  spec.add_dependency "rails", ">= 5.2.4", "< 7.0"
+  spec.add_dependency "rainbow", "~> 3.0"
 
-  spec.add_development_dependency "appraisal", "~> 2.3.0"
-  spec.add_development_dependency "rspec-rails", "~> 3.9.0"
-  spec.add_development_dependency "rubocop", "~> 1.10.0"
-  spec.add_development_dependency "rubocop-performance", "~> 1.6"
-  spec.add_development_dependency "rubocop-rspec", "~> 2.2.0"
-  spec.add_development_dependency "sqlite3", "~> 1.4.2"
+  spec.add_development_dependency "appraisal", "~> 2.4"
+  spec.add_development_dependency "rspec-rails", "~> 5.0"
+  spec.add_development_dependency "rubocop", "~> 1.18"
+  spec.add_development_dependency "rubocop-performance", "~> 1.11"
+  spec.add_development_dependency "rubocop-rspec", "~> 2.4"
+  spec.add_development_dependency "sqlite3", "~> 1.4"
 end
