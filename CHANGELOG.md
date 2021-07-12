@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 1.1.0 (2021-07-09)
+
+* Support Rails 6.1
+
 ## 1.0.0 (2021-05-17)
 
 **Changes**
