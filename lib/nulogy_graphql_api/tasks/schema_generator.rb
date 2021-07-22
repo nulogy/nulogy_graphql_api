@@ -29,7 +29,7 @@ module NulogyGraphqlApi
       end
 
       def write_schema_to_file
-        File.write(@schema_output_path, schema_definition)
+        File.write(@schema_output_path, @schema_definition)
         puts Rainbow("\nSuccessfully updated #{@schema_output_path}").green
       end
     end
