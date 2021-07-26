@@ -1,7 +1,8 @@
 # Change log
 
 ## master (unreleased)
-
+**Changes**
+* Bug Fix: Schema generator always errored when generating new schema file 
 ## 1.1.0 (2021-07-12)
 
 **Changes**
