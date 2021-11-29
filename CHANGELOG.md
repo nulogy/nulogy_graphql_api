@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+_none_
+
+## 2.0.0 (2021-11-29)
+
 **Changes**
 
 * **(Breaking)** Bump graphql version from 1.12.5 to 1.13

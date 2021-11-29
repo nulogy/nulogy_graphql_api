@@ -9,7 +9,7 @@ Help Nulogy applications be compliant with the [Standard on Error-handling in Gr
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "nulogy_graphql_api", "1.1.1"
+gem "nulogy_graphql_api", "2.0.0"
 ```
 
 And then execute:
