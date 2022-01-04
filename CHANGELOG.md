@@ -4,6 +4,11 @@
 
 _none_
 
+## 2.0.1 (2022-01-04)
+
+**Changes**
+* Relax graphql-schema-comparator dependency to minor release
+
 ## 2.0.0 (2021-11-29)
 
 **Changes**
