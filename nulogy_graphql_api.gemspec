@@ -34,9 +34,11 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rainbow", "~> 3.0"
 
   spec.add_development_dependency "appraisal", "~> 2.4"
-  spec.add_development_dependency "rspec-rails", "~> 5.0"
-  spec.add_development_dependency "rubocop", "~> 1.18"
-  spec.add_development_dependency "rubocop-performance", "~> 1.11"
-  spec.add_development_dependency "rubocop-rspec", "~> 2.4"
+  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "rspec-rails", "~> 5.1"
+  spec.add_development_dependency "rubocop", "~> 1.25"
+  spec.add_development_dependency "rubocop-performance", "~> 1.13"
+  spec.add_development_dependency "rubocop-rake", "~> 0.6"
+  spec.add_development_dependency "rubocop-rspec", "~> 2.8"
   spec.add_development_dependency "sqlite3", "~> 1.4"
 end
