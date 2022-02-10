@@ -28,15 +28,17 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "graphql", "~> 1.13"
+  spec.add_dependency "graphql", "~> 2.0"
   spec.add_dependency "graphql-schema_comparator", "~> 1.0"
-  spec.add_dependency "rails", ">= 5.2.4", "< 7.0"
+  spec.add_dependency "rails", ">= 6.0", "< 7.0"
   spec.add_dependency "rainbow", "~> 3.0"
 
   spec.add_development_dependency "appraisal", "~> 2.4"
-  spec.add_development_dependency "rspec-rails", "~> 5.0"
-  spec.add_development_dependency "rubocop", "~> 1.18"
-  spec.add_development_dependency "rubocop-performance", "~> 1.11"
-  spec.add_development_dependency "rubocop-rspec", "~> 2.4"
+  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "rspec-rails", "~> 5.1"
+  spec.add_development_dependency "rubocop", "~> 1.25"
+  spec.add_development_dependency "rubocop-performance", "~> 1.13"
+  spec.add_development_dependency "rubocop-rake", "~> 0.6"
+  spec.add_development_dependency "rubocop-rspec", "~> 2.8"
   spec.add_development_dependency "sqlite3", "~> 1.4"
 end
