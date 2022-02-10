@@ -4,6 +4,11 @@
 
 _none_
 
+## 2.1.0 (2022-02-10)
+
+**Changes**
+* Support graphql 2.0.x
+
 ## 2.0.1 (2022-01-04)
 
 **Changes**
