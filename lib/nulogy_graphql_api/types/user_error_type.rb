@@ -1,6 +1,6 @@
 module NulogyGraphqlApi
   module Types
-    class UserErrorType < ::GraphQL::Schema::Object
+    class UserErrorType < NulogyGraphqlApi::Types::BaseObject
       description "An end-user readable error"
 
       field :message, String, null: false,
