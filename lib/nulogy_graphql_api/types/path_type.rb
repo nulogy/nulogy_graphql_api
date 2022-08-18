@@ -1,6 +1,6 @@
 module NulogyGraphqlApi
   module Types
-    class PathType < ::GraphQL::Types::BaseUnion
+    class PathType < NulogyGraphqlApi::Types::BaseUnion
       possible_types NulogyGraphqlApi::Types::PathIntegerType, NulogyGraphqlApi::Types::PathStringType
 
       def self.resolve_type(object, _context)
