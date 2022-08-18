@@ -6,14 +6,11 @@ module NulogyGraphqlApi
       def self.resolve_type(object, _context)
         p '*' * 80
         p object
-        p object.is_a?(PathStringType)
-        p object.class
-
-        if object.is_a?(NulogyGraphqlApi::Types::PathStringType)
+        #if object[:errors][:path].is_a?(NulogyGraphqlApi::Types::PathStringType)
           NulogyGraphqlApi::Types::PathStringType
-        else
-          NulogyGraphqlApi::Types::PathIntegerType
-        end
+        #else
+        # NulogyGraphqlApi::Types::PathIntegerType
+        #end
       end
     end
   end
