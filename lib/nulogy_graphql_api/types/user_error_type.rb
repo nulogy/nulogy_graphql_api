@@ -5,7 +5,7 @@ module NulogyGraphqlApi
 
       field :message, String, null: false,
         description: "A description of the error"
-      field :path, [NulogyGraphqlApi::Types::PathStringType], null: false,
+      field :path, [NulogyGraphqlApi::Types::PathIntegerType], null: false,
         description: "Which input value this error came from"
     end
   end
