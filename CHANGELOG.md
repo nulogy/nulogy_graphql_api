@@ -4,6 +4,11 @@
 
 _none_
 
+## 2.1.1 (2022-09-21)
+
+**Changes**
+* Support Rails 7
+
 ## 2.1.0 (2022-02-10)
 
 **Changes**
