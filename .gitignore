@@ -15,3 +15,4 @@
 
 # Appraisals
 *.gemfile.lock
+/gemfiles/.bundle

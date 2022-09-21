@@ -30,11 +30,12 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "graphql", "~> 2.0"
   spec.add_dependency "graphql-schema_comparator", "~> 1.0"
-  spec.add_dependency "rails", ">= 6.0", "< 7.0"
+  spec.add_dependency "rails", ">= 6.0", "< 8.0"
   spec.add_dependency "rainbow", "~> 3.0"
 
   spec.add_development_dependency "appraisal", "~> 2.4"
   spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "rspec", "~> 3.9"
   spec.add_development_dependency "rspec-rails", "~> 5.1"
   spec.add_development_dependency "rubocop", "~> 1.25"
   spec.add_development_dependency "rubocop-performance", "~> 1.13"
