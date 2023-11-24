@@ -4,6 +4,12 @@
 
 _none_
 
+## 2.1.2 (2022-11-24)
+
+**Changes**
+* Support graphql 2.1.x
+* Support graphql-schema_comparator 1.2.x
+
 ## 2.1.1 (2022-09-21)
 
 **Changes**
