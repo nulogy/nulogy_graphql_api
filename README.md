@@ -273,7 +273,7 @@ expect(response).to have_graphql_error("Error message")
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake` to run rubocop and tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To test against all supported versions of rails run `bundle exec appraisal install` and then run `bundle exec appraisal rake`.
 
