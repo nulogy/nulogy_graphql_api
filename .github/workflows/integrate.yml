@@ -5,7 +5,8 @@ on:
     types: [ created ]
 
 env:
-  PR_REF: ${{ format('refs/heads/{0}', github.event.pull_request.head.ref) }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  PR_URL: ${{ github.event.issue.pull_request.url }}
 
 jobs:
   integrate:
@@ -18,10 +19,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Checkout Pull Request
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PR_URL="${{ github.event.issue.pull_request.url }}"
           PR_NUM=${PR_URL##*/}
           gh pr checkout $PR_NUM
       - uses: ruby/setup-ruby@master
@@ -33,3 +31,7 @@ jobs:
         run: bundle exec appraisal rake rubocop
       - name: Run Specs
         run: bundle exec appraisal rake spec
+      - name: Merge PR
+        run: |
+          PR_NUM=${PR_URL##*/}
+          gh pr merge $PR_NUM
