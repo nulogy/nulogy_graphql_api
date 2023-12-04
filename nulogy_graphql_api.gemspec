@@ -14,7 +14,8 @@ Gem::Specification.new do |spec|
     "homepage_uri" => "https://github.com/nulogy/nulogy_graphql_api",
     "changelog_uri" => "https://github.com/nulogy/nulogy_graphql_api/blob/master/CHANGELOG.md",
     "source_code_uri" => "https://github.com/nulogy/nulogy_graphql_api",
-    "bug_tracker_uri" => "https://github.com/nulogy/nulogy_graphql_api/issues"
+    "bug_tracker_uri" => "https://github.com/nulogy/nulogy_graphql_api/issues",
+    "rubygems_mfa_required" => "true"
   }
 
   spec.required_ruby_version = Gem::Requirement.new(">= 2.6.0")
