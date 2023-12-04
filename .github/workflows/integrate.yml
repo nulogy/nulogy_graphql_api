@@ -23,7 +23,7 @@ jobs:
         run: |
           PR_URL="${{ github.event.issue.pull_request.url }}"
           PR_NUM=${PR_URL##*/}
-          hub pr checkout $PR_NUM
+          gh pr checkout $PR_NUM
       - uses: ruby/setup-ruby@master
       - name: Install gems
         run: bundle install
