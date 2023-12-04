@@ -34,4 +34,4 @@ jobs:
       - name: Merge PR
         run: |
           PR_NUM=${PR_URL##*/}
-          gh pr merge $PR_NUM --merge
+          gh pr merge $PR_NUM --merge --delete-branch
