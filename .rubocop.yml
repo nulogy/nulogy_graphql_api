@@ -10,7 +10,7 @@ AllCops:
   NewCops: enable
   TargetRubyVersion: 2.7
 
-Gemspec/DateAssignment:
+Gemspec/DeprecatedAttributeAssignment:
   Enabled: true
 
 Layout/EmptyLinesAroundAttributeAccessor:
@@ -134,6 +134,9 @@ RSpec/MessageSpies:
 
 RSpec/NotToNot:
   EnforcedStyle: to_not
+
+RSpec/Rails/InferredSpecType:
+  Enabled: false
 
 Style/AccessorGrouping:
   Enabled: true
