@@ -33,5 +33,5 @@ jobs:
         run: bundle exec appraisal rake spec
       - name: Merge PR
         run: |
-          PR_NUM=${PR_URL##*/}
+          PR_NUM=${PR_URL##*/} --squash
           gh pr merge $PR_NUM
