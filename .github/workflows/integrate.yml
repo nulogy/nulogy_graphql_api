@@ -13,12 +13,17 @@ jobs:
     if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/integrate')
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the latest code
+      - name: Clone Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{env.PR_REF}}
-          repository: ${{github.event.issue.pull_request.head.repo.full_name}}
+      - name: Checkout Pull Request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_URL="${{ github.event.issue.pull_request.url }}"
+          PR_NUM=${PR_URL##*/}
+          hub pr checkout $PR_NUM
       - uses: ruby/setup-ruby@master
       - name: Install gems
         run: bundle install
