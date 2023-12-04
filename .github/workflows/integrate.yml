@@ -15,6 +15,8 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ruby/setup-ruby@master
+      - name: Install gems
+        run: bundle install
       - name: Install dependencies
         run: bundle exec appraisal install
       - name: Run Rubocop
