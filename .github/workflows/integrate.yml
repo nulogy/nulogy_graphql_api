@@ -10,6 +10,7 @@ jobs:
     if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/integrate')
     runs-on: ubuntu-latest
     steps:
+      - uses: ruby/setup-ruby@master
       - name: Checkout the latest code
         uses: actions/checkout@v4
         with:
