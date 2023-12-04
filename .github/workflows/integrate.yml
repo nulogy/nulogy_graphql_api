@@ -34,4 +34,4 @@ jobs:
       - name: Merge PR
         run: |
           PR_NUM=${PR_URL##*/}
-          gh pr merge $PR_NUM --squash
+          gh pr merge $PR_NUM --squash -t "Merge pull request $PR_NUM"
