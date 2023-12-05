@@ -31,16 +31,12 @@ jobs:
         run: bundle exec appraisal rake rubocop
       - name: Run Specs
         run: bundle exec appraisal rake spec
-      - name: Merge PR
-        run: |
-          PR_NUM=${PR_URL##*/}
-          gh pr merge $PR_NUM --merge --delete-branch
       - name: Success feedback
         if: job.status == 'success'
         run: |
           gh api graphql --paginate -f query='
             mutation {
-              addReaction(input: { clientMutationId: 'integrate.yml', content: THUMBS_UP, subjectId: ${{github.event.comment.id}} }) {
+              addReaction(input: { clientMutationId: 'integrate.yml', content: THUMBS_UP, subjectId: ${github.event.comment.id} }) {
                 clientMutationId
               }
             }'
