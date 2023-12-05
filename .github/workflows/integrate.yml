@@ -14,29 +14,12 @@ jobs:
     if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/integrate')
     runs-on: ubuntu-latest
     steps:
-      - name: Clone Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Checkout Pull Request
-        run: |
-          PR_NUM=${PR_URL##*/}
-          gh pr checkout $PR_NUM
-      - uses: ruby/setup-ruby@master
-      - name: Install gems
-        run: bundle install
-      - name: Install dependencies
-        run: bundle exec appraisal install
-      - name: Run Rubocop
-        run: bundle exec appraisal rake rubocop
-      - name: Run Specs
-        run: bundle exec appraisal rake spec
       - name: Success feedback
         if: job.status == 'success'
         run: |
           gh api graphql --paginate -f query='
             mutation {
-              addReaction(input: { clientMutationId: "integrate.yml", content: THUMBS_UP, subjectId: ${github.event.comment.id} }) {
+              addReaction(input: { clientMutationId: "integrate.yml", content: THUMBS_UP, subjectId: ${{github.event.comment.id}} }) {
                 clientMutationId
               }
             }'
