@@ -38,7 +38,7 @@ jobs:
       - name: Add reaction to PR comment
         if: always()
         env:
-          REACTION: ${{ job.status != 'success' && 'THUMBS_UP' || 'THUMBS_DOWN' }}
+          REACTION: ${{ job.status == 'success' && 'THUMBS_UP' || 'THUMBS_DOWN' }}
         run: |
           gh api graphql --paginate -f query='
             mutation {
