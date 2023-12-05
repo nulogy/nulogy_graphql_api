@@ -1,5 +1,4 @@
 # rubocop:disable RSpec/FilePath
-# rubocop:disable RSpec/SpecFilePathFormat
 RSpec.describe DummyBaseController, type: :request do
   it "returns Not Found when requesting an entity that does not exist" do
     get "/graphql_api/dummy_base/test_record_not_found"
@@ -66,4 +65,3 @@ RSpec.describe DummyBaseController, type: :request do
   end
 end
 # rubocop:enable RSpec/FilePath
-# rubocop:enable RSpec/SpecFilePathFormat
