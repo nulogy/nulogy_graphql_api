@@ -43,4 +43,4 @@ jobs:
               addReaction(input: { clientMutationId: 'integrate.yml', content: THUMBS_UP, subjectId: ${{github.event.comment.id}} }) {
                 clientMutationId
               }
-            }
+            }'
