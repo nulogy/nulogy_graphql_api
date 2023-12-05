@@ -35,21 +35,14 @@ jobs:
         run: |
           PR_NUM=${PR_URL##*/}
           gh pr merge $PR_NUM --merge --delete-branch
-      - name: Success feedback
-        if: job.status == 'success'
+      - name: Add reaction to PR comment
+        if: always()
+        env:
+          REACTION: ${{ job.status != 'success' && 'THUMBS_UP' || 'THUMBS_DOWN' }}
         run: |
           gh api graphql --paginate -f query='
             mutation {
-              addReaction(input: { clientMutationId: "integrate.yml", content: THUMBS_UP, subjectId: "${{github.event.comment.node_id}}" }) {
-                clientMutationId
-              }
-            }'
-      - name: Failure feedback
-        if: job.status != 'success'
-        run: |
-          gh api graphql --paginate -f query='
-            mutation {
-              addReaction(input: { clientMutationId: "integrate.yml", content: THUMBS_DOWN, subjectId: "${{github.event.comment.node_id}}" }) {
+              addReaction(input: { clientMutationId: "integrate.yml", content: ${{env.REACTION}}, subjectId: "${{github.event.comment.node_id}}" }) {
                 clientMutationId
               }
             }'
