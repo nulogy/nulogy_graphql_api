@@ -19,7 +19,7 @@ jobs:
         run: |
           gh api graphql --paginate -f query='
             mutation {
-              addReaction(input: { clientMutationId: "integrate.yml", content: THUMBS_UP, subjectId: ${{github.event.comment.node_id}} }) {
+              addReaction(input: { clientMutationId: "integrate.yml", content: THUMBS_UP, subjectId: "${{github.event.comment.node_id}}" }) {
                 clientMutationId
               }
             }'
