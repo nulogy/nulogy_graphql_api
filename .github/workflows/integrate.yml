@@ -18,23 +18,31 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          
       - name: Checkout Pull Request
         run: |
           PR_NUM=${PR_URL##*/}
           gh pr checkout $PR_NUM
+          
       - uses: ruby/setup-ruby@master
+      
       - name: Install gems
         run: bundle install
+        
       - name: Install dependencies
         run: bundle exec appraisal install
+        
       - name: Run Rubocop
         run: bundle exec appraisal rake rubocop
+        
       - name: Run Specs
         run: bundle exec appraisal rake spec
+        
       - name: Merge PR
         run: |
           PR_NUM=${PR_URL##*/}
           gh pr merge $PR_NUM --merge --delete-branch
+          
       - name: Add reaction to PR comment
         if: always()
         env:
