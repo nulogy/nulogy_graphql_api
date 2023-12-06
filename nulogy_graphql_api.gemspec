@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 6.0", "< 8.0"
   spec.add_dependency "rainbow", "~> 3.0"
 
-  spec.add_development_dependency "appraisal", "~> 2.4"
+  spec.add_development_dependency "appraisal", "~> 2.5"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.9"
   spec.add_development_dependency "rspec-rails", "~> 5.1"
