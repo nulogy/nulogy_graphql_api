@@ -4,7 +4,14 @@
 
 _none_
 
-## 2.1.2 (2022-11-24)
+## 2.1.3 (2023-12-06)
+
+**Changes**
+* Support appraisal 2.5.x
+* Support rake 13.1.x
+* Support rspec 3.12.x
+
+## 2.1.2 (2023-11-24)
 
 **Changes**
 * Support graphql 2.1.x
