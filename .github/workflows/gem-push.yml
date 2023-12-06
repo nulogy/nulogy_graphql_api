@@ -17,8 +17,13 @@ jobs:
       - name: Install gems
         run: bundle install
 
+      - name: Setup git config
+        run: |
+          # Setup the username and email to enable git tag creation
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
       - name: Create release
         run: bundle exec rake release
         env:
           GEM_HOST_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
