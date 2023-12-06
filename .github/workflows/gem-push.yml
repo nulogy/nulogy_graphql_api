@@ -24,6 +24,4 @@ jobs:
           git config user.email "<>"
 
       - name: Create release
-        run: bundle exec rake release
-        env:
-          GEM_HOST_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
+        run: GEM_HOST_API_KEY ${{secrets.RUBYGEMS_API_KEY}} bundle exec rake release         
