@@ -289,7 +289,7 @@ The Directly Responsible Individual (DRI) for this project is Daniel Silva.
 
 When you are happy with your changes:
 
-1. Add description of changes to the top of the [CHANGELOG](./CHANGELOG.md) file, under the `## master (unreleased)` section subdivided into the following categories:
+1. Add description of changes to the top of the [CHANGELOG](./CHANGELOG.md) file, under the `master (unreleased)` section subdivided into the following categories:
     - New Features
     - Bug Fixes
     - Changes
@@ -297,6 +297,44 @@ When you are happy with your changes:
 
 1. Create a Pull Request.
 1. Notify #nulogy-graphql-api Slack channel to get the DRI review and merge your changes.
+
+### Merging Pull Requests
+
+Add a comment to the PR with the command `/integrate`. This will trigger the [Integrate](https://github.com/nulogy/nulogy_graphql_api/actions) GitHub action that runs checks (Rubocop, RSpec) and merges the code into the base branch.
+
+### Releasing a new version
+
+1. Take a look at the changes listed under `master (unreleased)` at the top of the [CHANGELOG](./CHANGELOG.md) in order to define the new version according to the rules of [Semantic Versioning](https://semver.org/).
+
+
+2. Change the `version.rb` file.
+
+    ```ruby
+    module NulogyGraphqlApi
+        VERSION = "2.1.3"
+    end
+    ```
+
+
+3. Add a title to the list of changes with the new version following the format: `X.Y.Z (YYYY-MM-DD)`. Keep the `master (unreleased)` title and add _none_ underneath it. This is how the top of the changelog should look like:
+
+    ```text
+    ## master (unreleased)
+
+    _none_
+    
+    ## 2.1.3 (2023-12-06)
+    
+    **Changes**
+    * Support appraisal 2.5.x
+    * Support rake 13.1.x
+    * Support rspec 3.12.x
+   ```
+
+4. Commit these changes. Suggested commit message: `Release new version`.
+
+
+5. Go to the [Release](https://github.com/nulogy/nulogy_graphql_api/actions/workflows/gem-push.yml) GitHub action and run a new workflow. The new version will be pushed to [rubygems](https://rubygems.org/gems/nulogy_graphql_api).
 
 ## License
 
