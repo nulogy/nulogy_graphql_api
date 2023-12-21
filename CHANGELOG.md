@@ -4,6 +4,12 @@
 
 _none_
 
+## 2.2.0 (2024-01-15)
+
+**Changes**
+* Pin graphql to major version 2. Permit minor version upgrades of graphql
+  without forcing the project to release a new version.
+
 ## 2.1.3 (2023-12-06)
 
 **Changes**
