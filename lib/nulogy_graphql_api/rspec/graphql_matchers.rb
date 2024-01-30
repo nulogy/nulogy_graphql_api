@@ -34,5 +34,13 @@ module NulogyGraphqlApi
         })
       end
     end
+
+    RSpec::Matchers.define :include_graphql_error do |message|
+      match do |actual_response|
+        expect(actual_response.fetch(:errors, nil)).to include(a_hash_including(
+          message: include(message)
+        ))
+      end
+    end
   end
 end

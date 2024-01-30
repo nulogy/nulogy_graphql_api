@@ -4,6 +4,10 @@
 
 _none_
 
+## 3.0.1 (2024-01-30)
+
+* Add `include_graphql_error` RSpec matcher
+
 ## 3.0.0 (2024-01-30)
 
 **Changes**
