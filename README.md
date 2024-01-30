@@ -9,7 +9,7 @@ Help Nulogy applications be compliant with the [Standard on Error-handling in Gr
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "nulogy_graphql_api", "2.1.0"
+gem "nulogy_graphql_api", "3.0.1"
 ```
 
 And then execute:
@@ -253,9 +253,7 @@ end
 
 #### Custom matchers
 
-These are the custom matchers available:
-
-`have_graphql_data` for checking the response `data`
+Use `have_graphql_data` for checking the response `data`.
 
 ```ruby
 expect(response).to have_graphql_data(
@@ -265,10 +263,18 @@ expect(response).to have_graphql_data(
 )
 ```
 
-`have_graphql_error` for checking the response `errors`
+Use `have_graphql_error` for matching exactly on the response `errors`. <br/>
+The match succeeds when the `errors` array contains a single entry with the specified message.
 
 ```ruby
 expect(response).to have_graphql_error("Error message")
+```
+
+Use `include_graphql_error` for matching inclusively on the response `errors`. <br/>
+The match succeeds when the `errors` array includes an entry with the specified message.
+
+```ruby
+expect(response).to include_graphql_error("Error message")
 ```
 
 ## Development
