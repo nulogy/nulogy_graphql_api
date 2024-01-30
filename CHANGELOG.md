@@ -4,6 +4,12 @@
 
 _none_
 
+## 3.0.0 (2024-01-30)
+
+**Changes**
+* **(Breaking)** Drop support for Rails 6.0
+* **(Breaking)** Drop support for Ruby 2.7
+
 ## 2.2.0 (2024-01-15)
 
 **Changes**
