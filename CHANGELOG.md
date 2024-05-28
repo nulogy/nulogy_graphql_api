@@ -4,6 +4,22 @@
 
 _none_
 
+## 4.0.0 (2024-05-28)
+
+**Changes**
+
+* Remove the `schema_generation_context?` attribute to the GraphQL `context` when generating the schema. Use the
+  already available `GraphQL::Schema::AlwaysVisible` plugin instead.
+  * **(Breaking)** Remove the `NulogyGraphqlApi::Schema::BaseMutation` class which introduced a new API for the 
+    `visible?` method that took a block. This introduced a deviation from the ruby graphql gem's API only for 
+    Mutations and so it was removed. Please ensure that any invocations of `visible?` do not take a block and use
+    `GraphQL::Schema::Mutation` instead.
+  * **(Breaking)** Change the `NulogyGraphqlApi::Tasks::SchemaGenerator#generate_schema` method to output the 
+    stringified version of the schema instead of checking it for changes and writing it to a file.
+  * Expose the `#check_changes` and `#write_schema_to_file` methods on the 
+    `NulogyGraphqlApi::Tasks::SchemaGenerator` to give the user more control over how to build their
+    tooling.
+
 ## 3.0.1 (2024-01-30)
 
 * Add `include_graphql_error` RSpec matcher
