@@ -195,7 +195,7 @@ The `request_graphql` helper issues a POST request against the provided URL. Thi
 ```ruby
 RSpec.describe MyApp::Graphql::Query, :graphql, type: :request do
   it "returns 401 Unauthorized given an unauthenticated request" do
-      gql_response = request_graphql(url, <<~GRAPHQL, headers: { "HTTP_AUTHORIZATION" => nil })
+      gql_response = request_graphql(url, <<~GRAPHQL, headers: { "HTTP_AUTHORIZATION" => nil }, user: default_user)
         query {
           entities {
             id

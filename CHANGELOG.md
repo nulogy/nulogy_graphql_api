@@ -19,6 +19,7 @@ _none_
   * Expose the `#check_changes` and `#write_schema_to_file` methods on the 
     `NulogyGraphqlApi::Tasks::SchemaGenerator` to give the user more control over how to build their
     tooling.
+* Allow the user to be specified for the `request_graphql` test helper.
 
 ## 3.0.1 (2024-01-30)
 
