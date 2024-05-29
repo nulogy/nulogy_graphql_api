@@ -9,7 +9,7 @@ module NulogyGraphqlApi
 
       def generate_schema
         visible_schema = Class.new(@schema)
-        GraphQL::Schema::AlwaysVisible.use(visible_schema)
+        visible_schema.use(GraphQL::Schema::AlwaysVisible)
         visible_schema.to_definition(context: @context)
       end
 
