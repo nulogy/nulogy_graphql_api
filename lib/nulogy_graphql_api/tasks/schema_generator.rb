@@ -8,9 +8,9 @@ module NulogyGraphqlApi
       end
 
       def generate_schema
-        # We will want to create a subclass of the schema here to make sure we don't pollute the original schema.
-        GraphQL::Schema::AlwaysVisible.use(@schema)
-        @schema.to_definition(context: @context)
+        visible_schema = Class.new(@schema)
+        GraphQL::Schema::AlwaysVisible.use(visible_schema)
+        visible_schema.to_definition(context: @context)
       end
 
       def check_changes
