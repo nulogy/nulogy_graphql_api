@@ -1,17 +1,16 @@
 class VisibleQuery < GraphQL::Schema::Object
   field :test, String, null: false
-  end
+end
 
 class InvisibleQuery < GraphQL::Schema::Object
   field :test, String, null: false
 
-  def self.visible?(context)
+  def self.visible?(_context)
     false
   end
 end
 
 RSpec.describe NulogyGraphqlApi::Tasks::SchemaGenerator do
-
   it "stringifies the schema" do
     fake_schema = Class.new(GraphQL::Schema) do
       query VisibleQuery
