@@ -7,6 +7,8 @@
 /pkg/
 /spec/reports/
 /tmp/
+/spec/dummy/tmp/local_secret.txt
+/spec/dummy/db/test.sqlite3*
 
 # rspec failure tracking
 .rspec_status
