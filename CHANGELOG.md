@@ -4,6 +4,12 @@
 
 _none_
 
+## 4.1.0 (2024-10-25)
+
+* Add support for Rails 7.1
+* Improve `have_graphql_data` RSpec matcher
+  * Match array values in any order 
+
 ## 4.0.0 (2024-05-28)
 
 **Changes**
