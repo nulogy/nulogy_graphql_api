@@ -1,4 +1,3 @@
-# rubocop:disable RSpec/FilePath
 # rubocop:disable RSpec/SpecFilePathFormat
 RSpec.describe DummyBaseController, type: :request do
   it "returns Not Found when requesting an entity that does not exist" do
@@ -65,5 +64,4 @@ RSpec.describe DummyBaseController, type: :request do
     Rails.application.config.consider_all_requests_local = old_val
   end
 end
-# rubocop:enable RSpec/FilePath
 # rubocop:enable RSpec/SpecFilePathFormat

@@ -29,18 +29,20 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "graphql", "~> 2"
+  spec.add_dependency "graphql", "~> 2.3"
   spec.add_dependency "graphql-schema_comparator", "~> 1.2"
-  spec.add_dependency "rails", ">= 6.1", "< 8.0"
-  spec.add_dependency "rainbow", "~> 3.0"
+  spec.add_dependency "rails", ">= 7.0", "< 8.0"
+  spec.add_dependency "rainbow", "~> 3.1"
 
   spec.add_development_dependency "appraisal", "~> 2.5"
-  spec.add_development_dependency "rake", "~> 13.1"
-  spec.add_development_dependency "rspec", "~> 3.12"
-  spec.add_development_dependency "rspec-rails", "~> 5.1"
-  spec.add_development_dependency "rubocop", "~> 1.25"
-  spec.add_development_dependency "rubocop-performance", "~> 1.13"
+  spec.add_development_dependency "rake", "~> 13.2"
+  spec.add_development_dependency "rspec", "~> 3.13"
+  spec.add_development_dependency "rspec-rails", ">= 6.1"
+  spec.add_development_dependency "rubocop", "~> 1.67"
+  spec.add_development_dependency "rubocop-performance", "~> 1.22"
+  spec.add_development_dependency "rubocop-rails", "~> 2.26"
   spec.add_development_dependency "rubocop-rake", "~> 0.6"
-  spec.add_development_dependency "rubocop-rspec", "~> 2.8"
+  spec.add_development_dependency "rubocop-rspec", "~> 3.1"
+  spec.add_development_dependency "rubocop-rspec_rails", "~> 2.3"
   spec.add_development_dependency "sqlite3", "~> 1.4"
 end

@@ -1,7 +1,9 @@
 require:
   - rubocop-performance
+  - rubocop-rails
   - rubocop-rake
   - rubocop-rspec
+  - rubocop-rspec_rails
 
 inherit_from:
   - .rubocop.directories.yml
@@ -112,6 +114,9 @@ Lint/UnmodifiedReduceAccumulator:
   Enabled: true
 
 Metrics:
+  Enabled: false
+
+Rails/Output:
   Enabled: false
 
 RSpec/AnyInstance:
