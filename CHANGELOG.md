@@ -4,6 +4,11 @@
 
 _none_
 
+## 4.2.0 (2024-10-28)
+
+* Drop support for Rails 6.1
+* Revert change to `have_graphql_data` RSpec matcher
+
 ## 4.1.0 (2024-10-25)
 
 * Add support for Rails 7.1

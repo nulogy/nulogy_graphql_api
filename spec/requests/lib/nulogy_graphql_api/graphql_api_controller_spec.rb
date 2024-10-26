@@ -1,4 +1,3 @@
-# rubocop:disable RSpec/FilePath
 # rubocop:disable RSpec/SpecFilePathFormat
 RSpec.describe DummyApiController, :graphql, type: :request do
   it "returns graphql response" do
@@ -87,5 +86,4 @@ RSpec.describe DummyApiController, :graphql, type: :request do
     Rails.application.config.consider_all_requests_local = old_val
   end
 end
-# rubocop:enable RSpec/FilePath
 # rubocop:enable RSpec/SpecFilePathFormat

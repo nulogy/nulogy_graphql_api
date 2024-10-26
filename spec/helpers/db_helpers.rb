@@ -17,7 +17,7 @@ module DbHelpers
   end
 
   def define_ar(table_name)
-    Class.new(ActiveRecord::Base) do
+    Class.new(ApplicationRecord) do
       self.table_name = table_name
     end
   end
