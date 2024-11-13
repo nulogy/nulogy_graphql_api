@@ -10,10 +10,14 @@ inherit_from:
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.2
 
 Gemspec/DeprecatedAttributeAssignment:
   Enabled: true
+
+Gemspec/DevelopmentDependencies:
+  Enabled: true
+  EnforcedStyle: gemspec
 
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
@@ -140,7 +144,7 @@ RSpec/MessageSpies:
 RSpec/NotToNot:
   EnforcedStyle: to_not
 
-RSpec/Rails/InferredSpecType:
+RSpecRails/InferredSpecType:
   Enabled: false
 
 Style/AccessorGrouping:
