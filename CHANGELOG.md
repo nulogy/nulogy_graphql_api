@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+_none_
+
+## 4.3.0 (2024-11-14)
+
 **Changes**
 
 * Test against Rails 8.0
