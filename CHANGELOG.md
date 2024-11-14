@@ -2,7 +2,9 @@
 
 ## master (unreleased)
 
-_none_
+**Changes**
+
+* Test against Rails 8.0
 
 ## 4.2.0 (2024-10-28)
 

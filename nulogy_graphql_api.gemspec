@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
     "rubygems_mfa_required" => "true"
   }
 
-  spec.required_ruby_version = Gem::Requirement.new(">= 3.0.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.2.0")
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "graphql", "~> 2.3"
   spec.add_dependency "graphql-schema_comparator", "~> 1.2"
-  spec.add_dependency "rails", ">= 7.0", "< 8.0"
+  spec.add_dependency "rails", ">= 7.0", "< 8.1"
   spec.add_dependency "rainbow", "~> 3.1"
 
   spec.add_development_dependency "appraisal", "~> 2.5"
@@ -44,5 +44,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop-rake", "~> 0.6"
   spec.add_development_dependency "rubocop-rspec", "~> 3.1"
   spec.add_development_dependency "rubocop-rspec_rails", "~> 2.3"
-  spec.add_development_dependency "sqlite3", "~> 1.4"
 end

@@ -29,4 +29,4 @@ RSpec.configure do |config|
   config.include NulogyGraphqlApi::GraphqlHelpers, graphql: true
 end
 
-Dir["#{File.dirname(__FILE__)}/dummy/{lib,app}/**/*.rb"].sort.each { |f| require f }
+Dir["#{File.dirname(__FILE__)}/dummy/{lib,app}/**/*.rb"].each { |f| require f }

@@ -260,7 +260,7 @@ When you are happy with your changes:
         - *prepend these with* **(Breaking)***,* **(Potentially Breaking)** *or just leave it blank in case neither applies*
 
 1. Create a Pull Request.
-1. Notify #nulogy-graphql-api Slack channel to get the DRI review and merge your changes.
+1. Notify #project-nulogy-graphql-api Slack channel to get the DRI review and merge your changes.
 
 ### Merging Pull Requests
 
