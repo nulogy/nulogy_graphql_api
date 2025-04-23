@@ -18,11 +18,15 @@ module NulogyGraphqlApi
       end
     end
 
-    RSpec::Matchers.define :have_graphql_error do |message|
+    RSpec::Matchers.define :have_graphql_errors do |*messages|
       match do |actual_response|
-        expect(actual_response.fetch(:errors, nil)).to contain_exactly(a_hash_including(
-          message: include(message)
-        ))
+        expect(actual_response.fetch(:errors, nil)).to contain_exactly(
+          *messages.map { |message|
+            a_hash_including(
+              message: include(message)
+            )
+          }
+        )
       end
     end
 
