@@ -22,6 +22,27 @@ RSpec.describe DummyApiController, :graphql, type: :request do
     )
   end
 
+  it "returns graphql errors when requesting fields that do not exist" do
+    query = <<~GRAPHQL
+      query {
+        fakes {
+          missingField
+          anotherMissingField
+        }
+      }
+    GRAPHQL
+
+    post "/graphql_api/dummy_api/graphql", params: { query: query }
+
+    gql_response = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to_not be_successful
+    expect(gql_response).to have_graphql_errors(
+      "Field 'missingField' doesn't exist on type 'Fake'",
+      "Field 'anotherMissingField' doesn't exist on type 'Fake'"
+    )
+  end
+
   it "returns Not Found when requesting an entity that does not exist" do
     get "/graphql_api/dummy_api/test_record_not_found"
 

@@ -2,7 +2,7 @@
 
 ## master (unreleased)
 
-_none_
+**(Breaking)** Remove `have_graphql_error` RSpec matcher in favour of `have_graphql_errors` RSpec matcher
 
 ## 4.3.0 (2024-11-14)
 
