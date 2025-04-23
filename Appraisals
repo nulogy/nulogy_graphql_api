@@ -2,6 +2,7 @@ appraise "rails-7-0" do
   gem "rails", "7.0.8.6"
   gem "sprockets-rails", "3.5.2"
   gem "sqlite3", "~> 1.4"
+  gem "concurrent-ruby", "1.3.4"
 end
 
 appraise "rails-7-1" do
