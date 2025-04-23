@@ -1,8 +1,14 @@
 # Change log
 
-## master (unreleased)
+## main (unreleased)
 
-**(Breaking)** Remove `have_graphql_error` RSpec matcher in favour of `have_graphql_errors` RSpec matcher
+_none_
+
+## 5.0.0 (2025-04-23)
+
+**Changes**
+
+* **(Breaking)** Remove `have_graphql_error` RSpec matcher in favour of `have_graphql_errors` RSpec matcher
 
 ## 4.3.0 (2024-11-14)
 
