@@ -7,6 +7,7 @@ module NulogyGraphqlApi
         description: "A description of the error"
       field :path, [String], null: false,
         description: "Which input value this error came from"
+      field :extensions, NulogyGraphqlApi::Types::ExtensionsType, null: true
     end
   end
 end

@@ -2,7 +2,9 @@
 
 ## main (unreleased)
 
-_none_
+**New Features**
+
+* Add extensions field to UserErrorType
 
 ## 5.0.0 (2025-04-23)
 
