@@ -1,6 +1,6 @@
 module NulogyGraphqlApi
   module Types
-    class ExtensionsType < ::GraphQL::Schema::Object
+    class UserErrorExtensionsType < ::GraphQL::Schema::Object
       description "Additional information about the error"
 
       field :short_message, String, null: true,
