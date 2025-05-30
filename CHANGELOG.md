@@ -6,9 +6,7 @@ _none_
 
 ## 5.1.0 (2025-05-29)
 
-**Changes**
-
-* Add extensions field to UserErrorType
+**Yanked**
 
 ## 5.0.0 (2025-04-23)
 
